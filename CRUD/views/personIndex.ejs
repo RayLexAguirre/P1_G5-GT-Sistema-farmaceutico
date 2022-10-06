@@ -18,6 +18,7 @@
         <th>Nombre</th>
         <th>Edad</th>
         <th>Tipo de sangre</th>
+        <th>Puesto de trabajo</th>
         <th></th>
         <th></th>
         <!--Se crean dos columnas sin nombre-->
@@ -30,6 +31,7 @@
         <td><%- person[prop].nombre %></td>
         <td><%- person[prop].edad %></td>
         <td><%- person[prop].tipoSangre %></td>
+        <td><%- person[prop].puestoTrabajo %></td>
         <td><a href="<%= `deletePerson/${person[prop]._id}` %>">Delete</a></td>
         <td><a href="<%= `findById/${person[prop]._id}` %>">Update</a></td>
         <!--Se crean la edicion y eliminacion del documento por medio de un hipervinculo-->

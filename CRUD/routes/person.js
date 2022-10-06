@@ -27,6 +27,7 @@ router.post("/addPerson", function (req, res) {
     edad: req.body.edad,
     tipoSangre: req.body.tipoSangre,
     nss: req.body.nss,
+    puesto_Trabajo: req.body.puestoTrabajo,
   }); //Se creo una nueva identidad para que permita agregar a un nuevo objeto en el coleccion de MongoDB
   myPerson.save();
 });
@@ -56,6 +57,7 @@ router.post("/updatePerson", function (req, res, next) {
       edad: req.body.edad,
       tipoSangre: req.body.tipoSangre,
       nss: req.body.nss,
+      puesto_Trabajo: req.body.puestoTrabajo,
     }, //Actualiza la base de datos con lo editado en la pagina
     function (err, post) {
       if (err) return next(err);

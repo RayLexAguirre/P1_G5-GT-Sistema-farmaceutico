@@ -8,7 +8,18 @@ h1 {
   font-weight: 700;
   font-size: 40px;
   text-align: center;
-  color: #72147e;
+  color: #000000;
+}
+
+#container {
+  background-color: #753abc;
+  padding: 10px;
+}
+
+#btn-link {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 p {
