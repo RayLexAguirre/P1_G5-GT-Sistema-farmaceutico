@@ -70,4 +70,66 @@ router.post("/updatePerson", function (req, res, next) {
   ); //Se redirige a la pagina de la tabla actualizada
 });
 
+// A partir de aquí segunda variable
+
+router.get("/listMedicina", (req, res, next) => {
+  Medicina.find(function (err, medicina) {
+    if (err) return next(err);
+    //res.json(person); Ahora en lugar de renderizar el json de person
+    res.render("medicinaIndex", { medicina }); //Ejecutara el archivo 'personIndex' y tambien le envia el json
+  });
+}); //Se crea la ruta para ver el listo de registros en la coleccion
+
+router.get("/addMedicina", function (req, res) {
+  res.render("medicina");
+}); //Se crea el render con el objetivo poder ver el formulario donde podremos enviar los datos
+
+router.post("/addMedicina", function (req, res) {
+  const myPerson = new Medicina({
+    nombre: req.body.nombre,
+    dosis: req.body.dosis,
+    cantidad: req.body.cantidad,    
+    marca: req.body.marca,
+    costo: req.body.costo,
+  }); //Se creo una nueva identidad para que permita agregar a un nuevo objeto en el coleccion de MongoDB
+  myMedicina.save();
+  res.redirect("/addMedicina");
+});
+
+// Se crea una ruta a la cual va a poder acceder el servidor para poder observar la colecion
+
+//DELETE PERSON - findByIdAndRemove
+router.get("/deletePerson/:id", function (req, res, next) {
+  Person.findByIdAndRemove(req.params.id, req.body, function (err, post) {
+    if (err) return next(err); // Se crea la funcion la cual encontrara y eliminara el objeto deseado
+    res.redirect("/listPerson"); // Se recarga la pagina para actualizarse
+  });
+});
+
+//EDIT PERSON - findById
+router.get("/findById/:id", function (req, res, next) {
+  Person.findById(req.params.id, function (err, person) {
+    if (err) return next(err); // Se crea la funcion la cual encontrara y se redirigira a la pagina de edicion
+    res.render("personUpdate", { person }); //Renderiza la pagina de edicion
+  });
+});
+
+router.post("/updatePerson", function (req, res, next) {
+  Person.findByIdAndUpdate(
+    req.body.objId,
+    {
+      nombre: req.body.nombre,
+      edad: req.body.edad,
+      tipoSangre: req.body.tipoSangre,
+      nss: req.body.nss,
+      puesto_Trabajo: req.body.puesto_Trabajo,
+      Salario: req.body.Salario,
+    }, //Actualiza la base de datos con lo editado en la pagina
+    function (err, post) {
+      if (err) return next(err);
+      res.redirect("/listPerson");
+    }
+  ); //Se redirige a la pagina de la tabla actualizada
+});
+
 module.exports = router;
