@@ -5,36 +5,37 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lista de personas</title>
+    <title>Lista de sucursales</title>
   </head>
   <body>
     <div class="headerlista">
-      <h1 style="color: #ffffff">Lista de personas</h1>
+      <h1 style="color: #ffffff">Lista de sucursales</h1>
     </div>
 
     <table class="styled-table">
       <tr>
-        <th>NSS</th>
-        <th>Nombre</th>
-        <th>Edad</th>
-        <th>Puesto de trabajo</th>
-        <th>Salario</th>
-        <th>Relación</th>
+        <th>Municipio</th>
+        <th>Colonia</th>
+        <th>Calle</th>
+        <th>Código Postal</th>
         <th></th>
         <th></th>
         <!--Se crean dos columnas sin nombre-->
       </tr>
       <!--Dentro de la tabla se estara ingresando la informacion proveniente del json-->
-      <% Object.keys(person).forEach(function(prop) { %>
-      <!--Menciona que por cada llave de person utilizara un prop-->
+      <% Object.keys(sucursal).forEach(function(prop) { %>
+      <!--Menciona que por cada llave de sucursal utilizara un prop-->
       <tr>
-        <td><%- person[prop].nss %></td>
-        <td><%- person[prop].nombre %></td>
-        <td><%- person[prop].edad %></td>
-        <td><%- person[prop].puesto_Trabajo %></td>
-        <td>$ <%- person[prop].Salario %></td>
-        <td><a href="<%= `deletePerson/${person[prop]._id}` %>">Delete</a></td>
-        <td><a href="<%= `findById/${person[prop]._id}` %>">Update</a></td>
+        <td><%- sucursal[prop].municipio %></td>
+        <td><%- sucursal[prop].colonia %></td>
+        <td><%- sucursal[prop].calle %></td>
+        <td><%- sucursal[prop].codigoPostal %></td>
+        <td>
+          <a href="<%= `deleteSucursal/${sucursal[prop]._id}` %>">Delete</a>
+        </td>
+        <td>
+          <a href="<%= `SucfindById/${sucursal[prop]._id}` %>">Update</a>
+        </td>
         <!--Se crean la edicion y eliminacion del documento por medio de un hipervinculo-->
       </tr>
       <% }); %>

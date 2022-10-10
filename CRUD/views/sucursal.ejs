@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/assets/style.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale = 1.0" />
+    <title>Agregar Sucursal</title>
+  </head>
+  <body>
+    <h1>Agregar Sucursal</h1>
+
+    <form action="/addSucursal" method="post">
+      <label for="municipio">Municipio:</label>
+      <input type="text" id="municipio" name="municipio" /><br /><br />
+      <label for="colonia">Colonia:</label>
+      <input type="text" id="colonia" name="colonia" /><br /><br />
+      <label for="calle">Calle:</label>
+      <input type="text" id="calle" name="calle" /><br /><br />
+      <label for="codigoPostal">Código Postal:</label>
+      <input type="text" id="codigoPostal" name="codigoPostal" /><br /><br />
+      <!--Se crea un formulario para que reciba la informacion ingresada y la manda a person.js para que pueda ingresarla a MongoDB -->
+      <input type="submit" value="submit" />
+    </form>
+    <br />
+    <a href="/">Regresar</a><br />
+  </body>
+</html>
